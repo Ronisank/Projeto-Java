@@ -1,8 +1,5 @@
-import java.security.PublicKey;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.Statement;
-
 import dao.Conexao;
 
 public class Principal {

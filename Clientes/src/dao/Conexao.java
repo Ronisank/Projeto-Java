@@ -16,7 +16,7 @@ public class Conexao {
 	Connection conecta = DriverManager.getConnection(URL, USER, PASS);
 	con = conecta;
 	if (conecta != null){
-	//System.out.print("Conexão efetuada com sucesso...");
+	System.out.print("Conexão efetuada com sucesso...");
 	return conecta;
 	}
 	return null;

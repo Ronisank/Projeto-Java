@@ -75,6 +75,7 @@ public class FormCadastroView extends JFrame {
 		lblNewLabel_1.setBounds(130, 143, 69, 14);
 		contentPane.add(lblNewLabel_1);
 		
+		
 		JLabel lblNewLabel_2 = new JLabel("Senha");
 		lblNewLabel_2.setFont(new Font("Gill Sans MT", Font.PLAIN, 14));
 		lblNewLabel_2.setBounds(130, 199, 56, 23);
@@ -88,15 +89,14 @@ public class FormCadastroView extends JFrame {
 		passwordField = new JPasswordField();
 		passwordField.setBounds(130, 226, 254, 20);
 		contentPane.add(passwordField);
-		System.out.println(passwordField);
+				
 		
 		JButton btnNewButton = new JButton("SALVAR");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//String sql = "insert into usuario(usuario,senha) values (?,?);";
 				try {
 					Connection conecta = new Conexao().criarConexao();
-					String sql = "insert into usuario(usuario,senha) values (lblNewLabel_2,'passwordField2');";
+					String sql = "insert into usuario(usuario,senha) values ('VEVE','13789');";
 					PreparedStatement statement = conecta.prepareStatement(sql);
 					System.out.println("Usuário cadastrado com sucesso");
 					statement.executeUpdate();

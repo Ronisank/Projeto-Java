@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import java.awt.Font;
@@ -25,7 +26,7 @@ public class JLogin extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField textFieldUsuario;
 	private JPasswordField passwordField;
 
 	/**
@@ -66,10 +67,10 @@ public class JLogin extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(37, 94, 191, 25);
-		panel.add(textField);
-		textField.setColumns(10);
+		textFieldUsuario = new JTextField();
+		textFieldUsuario.setBounds(37, 94, 191, 25);
+		panel.add(textFieldUsuario);
+		textFieldUsuario.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Senha");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
@@ -109,12 +110,18 @@ public class JLogin extends JFrame {
 		btnButtonCadastro.setFont(new Font("Gill Sans MT", Font.PLAIN, 13));
 		btnButtonCadastro.setBounds(37, 301, 191, 23);
 		panel.add(btnButtonCadastro);
-		
+
 		JButton btnButtonLogin = new JButton("ENTRAR");
 		btnButtonLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MenuView menuView = new MenuView();
-				menuView.setVisible(true);
+				if(textFieldUsuario.getText()!=null && 
+						!textFieldUsuario.getText().isEmpty() &&
+						passwordField.getPassword()!=null && 
+						!passwordField.getText().isEmpty()) {
+					JOptionPane.showMessageDialog(btnButtonLogin, "Informoções Válidas!");
+					}else {
+					JOptionPane.showMessageDialog(btnButtonLogin, "Verifique as informações", "Aviso", JOptionPane.WARNING_MESSAGE);
+				}				
 			}
 		});
 		btnButtonLogin.setContentAreaFilled(false);
