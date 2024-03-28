@@ -12,12 +12,9 @@ import javax.swing.JPasswordField;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JButton;
-import java.awt.Button;
 import java.awt.Dimension;
 import java.awt.Cursor;
-import javax.swing.UIManager;
-import javax.swing.border.EtchedBorder;
-import javax.swing.text.StyledEditorKit.ForegroundAction;
+import controller.Criptografia;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -98,8 +95,7 @@ public class JLogin extends JFrame {
 		JButton btnButtonCadastro = new JButton("REALIZAR CADASTRO");
 		btnButtonCadastro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				FormCadastroView cadastroView = new FormCadastroView();
-				cadastroView.setVisible(true);
+			
 			}
 		});
 		btnButtonCadastro.setOpaque(false);
@@ -113,13 +109,24 @@ public class JLogin extends JFrame {
 
 		JButton btnButtonLogin = new JButton("ENTRAR");
 		btnButtonLogin.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
+				Criptografia criptografia = new Criptografia(passwordField.getText(), Criptografia.MD5);
+				System.out.println(criptografia.criptografar());
 				if(textFieldUsuario.getText()!=null && 
 						!textFieldUsuario.getText().isEmpty() &&
-						passwordField.getPassword()!=null && 
+						passwordField.getText()!=null && 
 						!passwordField.getText().isEmpty()) {
-					JOptionPane.showMessageDialog(btnButtonLogin, "Informoções Válidas!");
-					}else {
+					if(criptografia.criptografar().equals("E10ADC3949BA59ABBE56E057F20F883E")) {
+						JOptionPane.showMessageDialog(btnButtonLogin, "Informoções Válidas!");
+						dispose();
+						JPrincipal jPrincipal = new JPrincipal();
+						jPrincipal.setLocationRelativeTo(jPrincipal);
+						jPrincipal.setVisible(true);
+					 	}else {
+					 		JOptionPane.showMessageDialog(btnButtonLogin, "Verifique as informações");
+					 	}
+				}else {
 					JOptionPane.showMessageDialog(btnButtonLogin, "Verifique as informações", "Aviso", JOptionPane.WARNING_MESSAGE);
 				}				
 			}
