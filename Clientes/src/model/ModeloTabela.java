@@ -7,8 +7,7 @@ import javax.swing.table.AbstractTableModel;
 @SuppressWarnings("serial")
 public class ModeloTabela extends AbstractTableModel{
 	
-	private static final String[] colunas = {
-			"ID", "CPF/CNPJ", "Nome", "E-mail", "Telefone", "Endere\u00E7o "};
+	private static final String[] colunas = {"ID", "CPF/CNPJ", "Nome", "E-mail", "Telefone", "Endereco "};
 	private ArrayList<Cliente> clientes;
 	
 	

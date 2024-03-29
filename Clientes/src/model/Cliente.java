@@ -12,7 +12,6 @@ public class Cliente {
 	}
 	
 	
-	
 	public Cliente(String id, String nome, String cpfCnpj, String email, String telefone, String endereco) {
 		super();
 		this.id = id;
