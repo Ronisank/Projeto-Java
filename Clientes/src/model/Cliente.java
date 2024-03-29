@@ -21,7 +21,7 @@ public class Cliente {
 		this.telefone = telefone;
 		this.endereco = endereco;
 	}
-
+	
 
 
 	public String getId() {
@@ -30,7 +30,7 @@ public class Cliente {
 
 
 
-	public void setId(String id) {
+	public void setString(String id) {
 		this.id = id;
 	}
 
