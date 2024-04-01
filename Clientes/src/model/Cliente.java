@@ -1,7 +1,7 @@
 package model;
 
 public class Cliente {
-	protected String id;
+	protected int id;
 	protected String nome;
 	protected String cpfCnpj;
 	protected String email;
@@ -12,7 +12,17 @@ public class Cliente {
 	}
 	
 	
-	public Cliente(String id, String nome, String cpfCnpj, String email, String telefone, String endereco) {
+	public Cliente(String nome, String cpfCnpj, String email, String telefone, String endereco) {
+		super();
+		this.nome = nome;
+		this.cpfCnpj = cpfCnpj;
+		this.email = email;
+		this.telefone = telefone;
+		this.endereco = endereco;
+	}
+
+
+	public Cliente(Integer id, String nome, String cpfCnpj, String email, String telefone, String endereco) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -23,14 +33,14 @@ public class Cliente {
 	}
 	
 
-
-	public String getId() {
+	
+	public Integer getId() {
 		return id;
 	}
 
 
 
-	public void setString(String id) {
+	public void setString(int id) {
 		this.id = id;
 	}
 
